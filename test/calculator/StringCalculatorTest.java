@@ -21,4 +21,16 @@ public class StringCalculatorTest {
         String nums = "1, 2";
         Assert.assertEquals(3, StringCalculator.add(nums));
     }
+
+    @Test
+    public void step2TestStringWithTenSingleDigitNumbers(){
+        String nums = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9";
+        Assert.assertEquals(45, StringCalculator.add(nums));
+    }
+
+    @Test
+    public void step2TestStringWithTenTwoDigitNumbers(){
+        String nums = "10, 11, 12, 13, 14, 15, 16, 17, 18, 19";
+        Assert.assertEquals(145, StringCalculator.add(nums));
+    }
 }
