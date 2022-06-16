@@ -81,4 +81,16 @@ public class StringCalculatorTest {
         String nums = "--2,nk44, 5,fwe(*)$# --55, 6df0";
         int sum = StringCalculator.add(nums);
     }
+
+    @Test
+    public void step6TestStringWithNumbersBiggestThan1000() {
+        String nums = "10000, 2544, 334534, 4234, 5123, 65234, 7543, 8234, 91432";
+        Assert.assertEquals(0, StringCalculator.add(nums));
+    }
+
+    @Test
+    public void step6TestStringWithNumbersSmallerAndBiggerThan1000() {
+        String nums = "1000, 100, 334534, 500, 8234, 91432, 400";
+        Assert.assertEquals(2000, StringCalculator.add(nums));
+    }
 }

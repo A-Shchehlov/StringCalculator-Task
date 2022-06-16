@@ -16,10 +16,11 @@ public class StringCalculator {
             return 0;
         }
         List<Integer> list = retrieveNumbersFromString(numbers);
-        if(list.stream().anyMatch(n -> n < 0)){
+        if (list.stream().anyMatch(n -> n < 0)) {
             throw new NegativesAreNotAllowed(negativeValuesToString(list));
         }
         return list.stream()
+                .filter(n -> n <= 1000)
                 .reduce(Integer::sum)
                 .orElse(0);
     }
