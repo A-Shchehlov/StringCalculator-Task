@@ -1,7 +1,10 @@
 package calculator;
 
+import exceptions.NegativesAreNotAllowed;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 public class StringCalculatorTest {
     @Test
@@ -56,5 +59,26 @@ public class StringCalculatorTest {
     public void step4TestStringWithNumbersAndOtherSymbols() {
         String nums = "1**as 2//>3,n45";
         Assert.assertEquals(51, StringCalculator.add(nums));
+    }
+
+    @Test
+    public void step5TestRetrieveNumsFromStringMethod() {
+        String nums = "--2,nk44, 5,fwe(*)$# --55, 6df0";
+        List<Integer> result = StringCalculator.retrieveNumbersFromString(nums);
+        List<Integer> expected = List.of(-2, 44, 5, -55, 6, 0);
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void step5TestNegativeValuesToStringMethod() {
+        List<Integer> list = List.of(-2, 44, 5, -55, 6, 0, -1, 4, -99);
+        String expected = "-2, -55, -1, -99";
+        Assert.assertEquals(expected, StringCalculator.negativeValuesToString(list));
+    }
+
+    @Test(expected = NegativesAreNotAllowed.class)
+    public void step5TestStringWithNegatives() {
+        String nums = "--2,nk44, 5,fwe(*)$# --55, 6df0";
+        int sum = StringCalculator.add(nums);
     }
 }
