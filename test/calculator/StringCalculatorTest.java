@@ -33,4 +33,16 @@ public class StringCalculatorTest {
         String nums = "10, 11, 12, 13, 14, 15, 16, 17, 18, 19";
         Assert.assertEquals(145, StringCalculator.add(nums));
     }
+
+    @Test
+    public void step3TestStringWithNumbersDelimitedByNewLine1(){
+        String nums = "1\\n2,3";
+        Assert.assertEquals(6, StringCalculator.add(nums));
+    }
+
+    @Test
+    public void step3TestStringWithNumbersDelimitedByNewLine2(){
+        String nums = "1\\n2,3\\n4\\n\\n5";
+        Assert.assertEquals(15, StringCalculator.add(nums));
+    }
 }
